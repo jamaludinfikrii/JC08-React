@@ -3,6 +3,7 @@ import Footer from './components/footer'
 import Navbar from './components/header'
 import Form from './components/form'
 import Homepage from './components/homepage'
+import Product from './components/product'
 import {Route} from 'react-router-dom'
 import './App.css';
 
@@ -18,6 +19,7 @@ class App extends Component {
         <Navbar/>
         <div className='container'>
           <Route path='/form' component={Form} />
+          <Route path='/products' component={Product} />
           <Route path='/' component={Homepage} exact />
         </div>
         <Footer/>
