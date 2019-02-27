@@ -4,10 +4,7 @@ import './../support/css/cssform.css'
 // inline
 // external
 class Form extends React.Component{
-    state={nama : ''}
-    componentDidMount(){
-        alert('masuk dong')
-    }
+
     handleButton = () => {
         var username = this.refs.username.value
         this.setState({nama:username})
