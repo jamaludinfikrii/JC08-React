@@ -4,6 +4,7 @@ import Navbar from './components/header'
 import Form from './components/form'
 import Homepage from './components/homepage'
 import Product from './components/product'
+import Latihan from './components/latihan'
 import {Route} from 'react-router-dom'
 import './App.css';
 
@@ -19,6 +20,7 @@ class App extends Component {
         <Navbar/>
         <div className='container'>
           <Route path='/form' component={Form} />
+          <Route path='/latihan' component={Latihan} />
           <Route path='/products' component={Product} />
           <Route path='/' component={Homepage} exact />
         </div>

@@ -1,4 +1,6 @@
 import React from 'react'
+import { fnUbahUser } from '../1.actions'
+import { connect } from 'react-redux'
 import './../support/css/cssform.css'
 
 // inline
@@ -7,7 +9,8 @@ class Form extends React.Component{
 
     handleButton = () => {
         var username = this.refs.username.value
-        this.setState({nama:username})
+        this.props.fnUbahUser(username)
+        
     }
 
     render(){
@@ -19,7 +22,7 @@ class Form extends React.Component{
                         <form>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1" class='merah'>Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ref='username' />
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ref='username' onChange={this.handleButton} />
                                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
                             <div className="form-group">
@@ -40,4 +43,5 @@ class Form extends React.Component{
     }
 }
 
-export default Form
+export default connect(null,{fnUbahUser})(Form)
+

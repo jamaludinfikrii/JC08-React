@@ -11,7 +11,9 @@ class Product extends React.Component{
     getProduct = () => {
         Axios.get('http://localhost:2000/product')
         .then((res) => 
+            
             this.setState({listProduct : res.data})
+            
         )
         .catch((err) => console.log(err))
     }

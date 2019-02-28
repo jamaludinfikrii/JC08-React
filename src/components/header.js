@@ -38,10 +38,13 @@ class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link to='/form'><NavLink  style={{color:'white' , textDecoration:'none'}}>Login</NavLink></Link> 
+                <Link to='/form' style={{textDecoration:'none'}}><NavLink  style={{color:'white' , textDecoration:'none'}}>Login</NavLink></Link> 
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">Register</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink style={{color:'white'}}>{this.props.kata} Words</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -71,7 +74,8 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
   return {nama : state.user.username,
           email : state.user.email,
-          buah : state.product.namaProduct}
+          buah : state.product.namaProduct,
+          kata : state.jumlah.count}
 }
 
 export default connect(mapStateToProps)(Header)
