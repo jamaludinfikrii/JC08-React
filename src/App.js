@@ -5,6 +5,8 @@ import Form from './components/form'
 import Homepage from './components/homepage'
 import Product from './components/product'
 import Latihan from './components/latihan'
+import Latihan2 from './components/latihan2'
+import Latihan3 from './components/latihan3'
 import {Route} from 'react-router-dom'
 import './App.css';
 
@@ -21,6 +23,8 @@ class App extends Component {
         <div className='container'>
           <Route path='/form' component={Form} />
           <Route path='/latihan' component={Latihan} />
+          <Route path='/latihan2' component={Latihan2} />
+          <Route path='/latihan3' component={Latihan3} />
           <Route path='/products' component={Product} />
           <Route path='/' component={Homepage} exact />
         </div>

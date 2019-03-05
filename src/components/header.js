@@ -44,7 +44,7 @@ class Header extends React.Component {
                 <NavLink href="https://github.com/reactstrap/reactstrap">Register</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink style={{color:'white'}}>{this.props.kata} Words</NavLink>
+                <NavLink style={{color:'white'}}>{this.props.kata} Todo</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
