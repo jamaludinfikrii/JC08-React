@@ -3,14 +3,57 @@ import { hitungKata } from './../1.actions'
 import React from 'react'
 
 class Latihan3 extends React.Component{
-    state = {toDo : []}
+    state = {toDo : ['makan','minum','tidur','mandi'] , selectedToDo : -1}
+    componentDidMount(){
+        this.props.hitungKata(this.state.toDo.length    )
+    }
+
+    handleEditBtn = (no) => {
+        this.setState({selectedToDo : no})
+    }
+    handleBtnCancel = () => {
+        this.setState({selectedToDo : -1})
+    }
+
+    handleSaveBtn = (no) => {
+        // Cara Simple
+        // var newData = this.refs.editValue.value;
+        // this.state.toDo[no] = newData
+        // this.setState({selectedToDo : -1})
+
+        // Cara Lain
+
+        var newData = this.refs.editValue.value;
+        var arrTemp = [...this.state.toDo]
+        arrTemp[no] = newData
+        this.setState({toDo : arrTemp , selectedToDo : -1})
+
+    }
+
+    handleBtnDelete = (no) => {
+        var arrTemp = [...this.state.toDo]
+        arrTemp.splice(no,1)
+        this.setState({toDo : arrTemp})
+    }
 
     renderState = () => {
         var jsx = this.state.toDo.map((val,index) => {
+            if(this.state.selectedToDo === index){
+                return(
+                    <tr>
+                        <th scope="row">{index+1}</th>
+                        <td><input type='text' className="form-control" ref='editValue' defaultValue={val} /></td>
+                        <td> <input type='button' className='btn btn-success' value='Save' onClick={()=>{this.handleSaveBtn(index)}} /> </td>
+                        <td> <input type='button' className='btn btn-danger' value='Cancel' onClick={this.handleBtnCancel}/> </td>
+                    </tr>
+                )
+            }
             return(
                 <tr>
                     <th scope="row">{index+1}</th>
                     <td>{val}</td>
+                    <td> <input type='button' className='btn btn-primary' value='Edit' onClick={()=>{this.handleEditBtn(index)}}/> </td>
+                    <td> <input type='button' className='btn btn-danger' value='Delete' onClick={ ()=> {this.handleBtnDelete(index)}}/> </td>
                 </tr>
             )
         })
@@ -60,3 +103,14 @@ class Latihan3 extends React.Component{
 }
 
 export default connect(null,{hitungKata})(Latihan3);
+
+
+var arr = ['makan','minum','tidur']
+var bebas = arr.map((val,index) => {
+    if(index ==2){
+        return (index*2) + '. ' + val
+    }
+        return index + '. ' + val
+}) 
+
+console.log(bebas)
