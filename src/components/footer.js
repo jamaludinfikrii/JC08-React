@@ -12,7 +12,7 @@ class Footer extends Component{
 
     render(){   
         return(
-            <div style={{position:'fixed',left:'0px',bottom:'0px',height:'100px',backgroundColor:'black',width:'100%'}}> 
+            <div style={{height:'100px',backgroundColor:'black',width:'100%'}}> 
                 
             </div>
         )

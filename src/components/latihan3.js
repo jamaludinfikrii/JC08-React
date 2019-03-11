@@ -25,7 +25,7 @@ class Latihan3 extends React.Component{
 
         var newData = this.refs.editValue.value;
         var arrTemp = [...this.state.toDo]
-        arrTemp[no] = newData
+        arrTemp[this.state.selectedToDo] = newData
         this.setState({toDo : arrTemp , selectedToDo : -1})
 
     }
